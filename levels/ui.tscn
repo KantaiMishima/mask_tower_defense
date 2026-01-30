@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://bakbyql52dfyk"]
+[gd_scene load_steps=4 format=3 uid="uid://bakbyql52dfyk"]
+
+[ext_resource type="Script" uid="uid://bf1f683kityw8" path="res://levels/hand_panel.gd" id="1_ltyi1"]
+[ext_resource type="PackedScene" uid="uid://cr536yjw3k0l7" path="res://masks/mask_ui.tscn" id="2_vt5b8"]
+[ext_resource type="Script" uid="uid://cm28cvb4hk08v" path="res://levels/draw.gd" id="3_03ww2"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -10,11 +14,26 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HandPanel" type="ColorRect" parent="CanvasLayer" node_paths=PackedStringArray("maskcontainer")]
+offset_left = 60.0
+offset_top = 515.0
+offset_right = 1098.0
+offset_bottom = 634.0
+color = Color(0.14901961, 0.14901961, 0.14901961, 0.70980394)
+script = ExtResource("1_ltyi1")
+maskcontainer = NodePath("MaskContainer")
+mask_ui_scene = ExtResource("2_vt5b8")
 
-[node name="Container" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
+[node name="HandPanel" type="Node2D" parent="CanvasLayer/HandPanel"]
+script = ExtResource("3_03ww2")
+
+[node name="MaskContainer" type="HBoxContainer" parent="CanvasLayer/HandPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 117.0
+offset_top = 192.0
+offset_right = 157.0
+offset_bottom = 232.0
+alignment = 1
+
+[node name="GeneratePoint#Untest" type="Marker2D" parent="CanvasLayer/HandPanel/MaskContainer"]
+position = Vector2(402, 42)

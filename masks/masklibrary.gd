@@ -23,8 +23,8 @@ func get_mask_data(mask_id: String) -> maskdata:
 
 
 func get_random_mask() -> maskdata:
-	if mask_database.size == 0:
-		return null
+	#if mask_database.size == 0:
+		#return null
 	var mask_ids = mask_database.keys()
 	var random_id = mask_ids[randi() % mask_ids.size()]
 	return get_mask_data(random_id)
