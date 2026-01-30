@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://8wjmg3tw40px"]
+
+[ext_resource type="PackedScene" path="res://ally.tscn" id="1_gojnm"]
+[ext_resource type="Texture2D" uid="uid://cu8nhkeimtkp8" path="res://icon.svg" id="2_1c2mv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsoxx"]
+size = Vector2(57.5, 67.5)
+
+[node name="Test_level" type="Node2D"]
+
+[node name="Ally" parent="." instance=ExtResource("1_gojnm")]
+position = Vector2(0, 1)
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+position = Vector2(278, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hsoxx")
+
+[node name="Icon" type="Sprite2D" parent="Obstacle"]
+position = Vector2(97, -3)
+texture = ExtResource("2_1c2mv")
