@@ -1,7 +1,9 @@
-[gd_scene format=3 uid="uid://cqi0k5ccvpe0c"]
+[gd_scene load_steps=2 format=3 uid="uid://cqi0k5ccvpe0c"]
+
+[ext_resource type="PackedScene" uid="uid://bnwno6djst23e" path="res://enemySpawn.tscn" id="1_p7flw"]
 
 [node name="mask_tower_defense" type="Node2D"]
 
 [node name="KLF" type="Node2D" parent="."]
 
-[node name="mishima" type="Node2D" parent="."]
+[node name="mishima" parent="." instance=ExtResource("1_p7flw")]
