@@ -19,10 +19,12 @@ func _ready() -> void:
 	if attacktimer:
 		attacktimer.one_shot = true
 		attacktimer.wait_time = 1.0
+		attacktimer.timeout.disconnect(_on_attacktimer_timeout)
 		attacktimer.timeout.connect(_on_attacktimer_timeout)
 	if invincibilitytimer:
 		invincibilitytimer.one_shot = true
 		invincibilitytimer.wait_time = 1.5
+		invincibilitytimer.timeout.disconnect(_on_invincibilitytimer_timeout)
 		invincibilitytimer.timeout.connect(_on_invincibilitytimer_timeout)
 	attack_area.body_entered.connect(_on_body_enter_area)
 	attack_area.body_exited.connect(_on_body_leave_area)

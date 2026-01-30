@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3xedcy2b5d6j"]
+
+[ext_resource type="Texture2D" uid="uid://cu8nhkeimtkp8" path="res://icon.svg" id="2_6s3rl"]
+[ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://spawnpoint.gd" id="2_abn3g"]
+[ext_resource type="Script" uid="uid://cy0itp5bxanr6" path="res://sapwner.gd" id="3_6s3rl"]
+[ext_resource type="PackedScene" uid="uid://dnvk8clvxc1w1" path="res://enemy.tscn" id="4_saw2u"]
+
+[node name="Trail" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(0.012617188, 0.0057064076, 0.0011939594, 1)
+position = Vector2(677, 302)
+scale = Vector2(11.01953, 1.5625001)
+texture = ExtResource("2_6s3rl")
+
+[node name="Spawnpoints" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="Spawnpoints"]
+position = Vector2(1277, 107)
+script = ExtResource("2_abn3g")
+spawn_name = "Spawn1"
+
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("3_6s3rl")
+spawn_point = NodePath("../Spawnpoints/Spawn1")
+base_enemy_scene = ExtResource("4_saw2u")
+hard_enemy_scene = ExtResource("4_saw2u")
