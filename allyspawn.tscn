@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2l07juqq7xy6"]
+
+[ext_resource type="Script" uid="uid://ca6ccfcw4vqe8" path="res://allyspawn.gd" id="1_7mpum"]
+[ext_resource type="PackedScene" uid="uid://k3hn0e3ndaej" path="res://ally.tscn" id="2_lccsv"]
+[ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://spawnpoint.gd" id="2_ljeti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljeti"]
+size = Vector2(127, 124)
+
+[node name="Allyspawn" type="Node2D" node_paths=PackedStringArray("respawn_point")]
+script = ExtResource("1_7mpum")
+respawn_interval = 1.5
+base_ally_scene = ExtResource("2_lccsv")
+respawn_point = NodePath("Respawnpoints/Marker2D")
+
+[node name="Checkingspace" type="Area2D" parent="."]
+position = Vector2(75, 111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkingspace"]
+position = Vector2(-11, -49)
+shape = SubResource("RectangleShape2D_ljeti")
+
+[node name="Respawnpoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Respawnpoints"]
+position = Vector2(62, 61)
+script = ExtResource("2_ljeti")
+spawn_name = "Respawn"
+
+[connection signal="body_entered" from="Checkingspace" to="." method="_on_checkingspace_body_entered"]
+[connection signal="body_exited" from="Checkingspace" to="." method="_on_checkingspace_body_exited"]
