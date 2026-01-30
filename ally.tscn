@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://k3hn0e3ndaej"]
+
+[ext_resource type="Script" uid="uid://cokakak4pgvaq" path="res://ally.gd" id="1_0mrcl"]
+[ext_resource type="PackedScene" uid="uid://cyw0megh8v3om" path="res://character_mother.tscn" id="1_ikv81"]
+
+[node name="Ally" instance=ExtResource("1_ikv81")]
+script = ExtResource("1_0mrcl")
+
+[node name="CollisionShape2D" parent="." index="0"]
+visibility_layer = 6
+
+[node name="Attackmotion" parent="." index="4"]
+collision_mask = 6

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyw0megh8v3om"]
+[gd_scene load_steps=5 format=3 uid="uid://cyw0megh8v3om"]
 
 [ext_resource type="Script" uid="uid://dq6aof07jdt7l" path="res://character_mother.gd" id="1_df6th"]
 [ext_resource type="Texture2D" uid="uid://cu8nhkeimtkp8" path="res://icon.svg" id="2_2yk2m"]
@@ -8,9 +8,6 @@ size = Vector2(122.25, 396.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4svr"]
 size = Vector2(259, 382)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgssa"]
-size = Vector2(8, 387)
 
 [node name="Character" type="CharacterBody2D"]
 collision_mask = 6
@@ -26,9 +23,11 @@ scale = Vector2(1.0839843, 3.0996094)
 texture = ExtResource("2_2yk2m")
 
 [node name="Attacktimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="Invincibilitytimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="Attackmotion" type="Area2D" parent="."]
@@ -36,13 +35,6 @@ one_shot = true
 [node name="Attackarea" type="CollisionShape2D" parent="Attackmotion"]
 position = Vector2(216, -2)
 shape = SubResource("RectangleShape2D_q4svr")
-
-[node name="Stopper" type="StaticBody2D" parent="."]
-position = Vector2(74, 0)
-
-[node name="Stoparea" type="CollisionShape2D" parent="Stopper"]
-position = Vector2(3, -2.5)
-shape = SubResource("RectangleShape2D_bgssa")
 
 [connection signal="timeout" from="Attacktimer" to="." method="_on_attacktimer_timeout"]
 [connection signal="timeout" from="Invincibilitytimer" to="." method="_on_invincibilitytimer_timeout"]
