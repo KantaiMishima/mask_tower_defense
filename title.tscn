@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmiwotn4dbb2u"]
+
+[ext_resource type="Script" uid="uid://4sn746jnknlb" path="res://title.gd" id="1_oyqm6"]
+[ext_resource type="FontFile" uid="uid://b0sk2sd0rih0g" path="res://fonts/PressStart2P-Regular.ttf" id="1_y7k74"]
+[ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="3_kpexm"]
+
+[node name="TitleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Floor" type="TextureRect" parent="."]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_kpexm")
+expand_mode = 2
+
+[node name="Title" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("1_oyqm6")
+
+[node name="GameName" type="Label" parent="Title"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y7k74")
+theme_override_font_sizes/font_size = 32
+text = "Relic Mask Guardians"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OperationRequest" type="Label" parent="Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_y7k74")
+theme_override_font_sizes/font_size = 24
+text = "Please press \"A\""
