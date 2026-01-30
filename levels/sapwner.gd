@@ -1,5 +1,5 @@
 extends Node2D
-const spawnpoint = preload("res://spawnpoint.gd") 
+const spawnpoint = preload("res://levels/spawnpoint.gd") 
 
 
 @export var spawn_point: spawnpoint

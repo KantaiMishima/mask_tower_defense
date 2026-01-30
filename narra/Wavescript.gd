@@ -8,7 +8,7 @@ const ENEMY_WAVE_SCRIPT: Array[Dictionary] = [
 		"spawn_rules": [
 			{
 				"spawn_point": "Spawn1",
-				"enemy_scene": preload("res://enemy.tscn"),
+				"enemy_scene": preload("res://characters/enemy.gd"),
 				"count": 2,
 				"spawn_interval": 1.0,
 				"init_params": {

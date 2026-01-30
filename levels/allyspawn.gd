@@ -1,5 +1,5 @@
 extends Node2D
-const spawnpoint = preload("res://spawnpoint.gd") 
+const spawnpoint = preload("res://levels/spawnpoint.gd") 
 
 @export var respawn_interval: float
 var bodies_in_area: Dictionary = {}
