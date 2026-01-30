@@ -5,11 +5,13 @@ const spawnpoint = preload("res://levels/spawnpoint.gd")
 var bodies_in_area: Dictionary = {}
 var respawn_timer: Timer
 var respawn_available: bool = false
+var generated_allies_container: Node
 
 @export var base_ally_scene: PackedScene
 @export var respawn_point: spawnpoint
 
 func _ready()-> void:
+	init_allies_container()
 	
 	respawn_timer = Timer.new()
 	respawn_timer.wait_time = respawn_interval
@@ -20,7 +22,14 @@ func _ready()-> void:
 	)
 	add_child(respawn_timer)
 	respawn_timer.start()
+	
 	pass
+
+func init_allies_container():
+	generated_allies_container = Node.new()
+	generated_allies_container.name = "GeneratedAlliesContainer"
+	add_child(generated_allies_container)
+	print("Created container", generated_allies_container.name)
 
 func _on_checkingspace_body_entered(body: Node2D) -> void:
 	if body != self:
@@ -44,7 +53,7 @@ func _spawn_allies() -> void:
 		var ally_scene = base_ally_scene
 		var ally = ally_scene.instantiate()  
 		ally.global_position = respawn_point.global_position
-		get_tree().root.add_child(ally)
+		generated_allies_container.add_child(ally)
 		
 		print("generate enemy", ally.name, "at", respawn_point.spawn_name)
 		

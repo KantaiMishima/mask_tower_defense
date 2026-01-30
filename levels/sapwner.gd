@@ -6,7 +6,7 @@ const spawnpoint = preload("res://levels/spawnpoint.gd")
 @export var base_spawn_interval: float = 2.0
 @export var base_enemy_scene: PackedScene
 @export var base_spawn_count: int = 1
-
+var generated_enemmies_container: Node#May be moved to the level script
 
 @export var difficulty_grow_time: float = 10.0
 @export var interval_reduce_ratio: float = 0.1
@@ -22,6 +22,7 @@ var spawn_timer: Timer
 var difficulty_timer: Timer
 
 func _ready() -> void:
+	init_enemmies_container()
 	current_spawn_interval = base_spawn_interval
 	current_spawn_count = base_spawn_count
 	
@@ -42,6 +43,13 @@ func _ready() -> void:
 	if not spawn_point or not spawn_point.is_enabled:
 		print("No selected spawn point")
 		spawn_timer.stop()
+		
+func init_enemmies_container() :
+	generated_enemmies_container = Node.new()
+	generated_enemmies_container.name = "GeneratedEnemmiesContainer"
+	add_child(generated_enemmies_container)
+	print("Created container", generated_enemmies_container.name)
+	pass
 
 func _spawn_enemies() -> void:
 	if not spawn_point or not spawn_point.is_enabled:
@@ -56,7 +64,7 @@ func _spawn_enemies() -> void:
 		
 		var enemy = enemy_scene.instantiate()  
 		enemy.global_position = spawn_point.global_position
-		get_tree().root.add_child(enemy)
+		generated_enemmies_container.add_child(enemy)
 		
 		print("generate enemy", enemy.name, "at", spawn_point.spawn_name)
 

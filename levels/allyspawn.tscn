@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2l07juqq7xy6"]
 
-[ext_resource type="Script" uid="uid://ca6ccfcw4vqe8" path="res://allyspawn.gd" id="1_7mpum"]
-[ext_resource type="PackedScene" uid="uid://k3hn0e3ndaej" path="res://ally.tscn" id="2_lccsv"]
-[ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://spawnpoint.gd" id="2_ljeti"]
+[ext_resource type="Script" uid="uid://ca6ccfcw4vqe8" path="res://levels/allyspawn.gd" id="1_7mpum"]
+[ext_resource type="PackedScene" uid="uid://k3hn0e3ndaej" path="res://characters/ally.tscn" id="2_lccsv"]
+[ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://levels/spawnpoint.gd" id="2_ljeti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljeti"]
 size = Vector2(127, 124)

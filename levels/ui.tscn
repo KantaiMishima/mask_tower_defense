@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bakbyql52dfyk"]
-
-[ext_resource type="Texture2D" uid="uid://cu8nhkeimtkp8" path="res://icon.svg" id="1_fyqef"]
+[gd_scene format=3 uid="uid://bakbyql52dfyk"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -10,11 +8,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Prepared_mask" type="TextureRect" parent="."]
-modulate = Color(9.840868, 9.840868, 9.840868, 1)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Container" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 498.0
-offset_right = 1142.0
-offset_bottom = 632.0
-texture = ExtResource("1_fyqef")
+offset_right = 40.0
+offset_bottom = 40.0

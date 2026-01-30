@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3xedcy2b5d6j"]
 
 [ext_resource type="Texture2D" uid="uid://cu8nhkeimtkp8" path="res://icon.svg" id="2_6s3rl"]
-[ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://spawnpoint.gd" id="2_abn3g"]
-[ext_resource type="Script" uid="uid://cy0itp5bxanr6" path="res://sapwner.gd" id="3_6s3rl"]
-[ext_resource type="PackedScene" uid="uid://dnvk8clvxc1w1" path="res://enemy.tscn" id="4_saw2u"]
+[ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://levels/spawnpoint.gd" id="2_abn3g"]
+[ext_resource type="Script" uid="uid://cy0itp5bxanr6" path="res://levels/sapwner.gd" id="3_6s3rl"]
+[ext_resource type="PackedScene" uid="uid://dnvk8clvxc1w1" path="res://characters/enemy.tscn" id="4_saw2u"]
 
 [node name="Trail" type="Node2D"]
 
