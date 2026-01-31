@@ -15,21 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Ally" parent="." instance=ExtResource("1_j5lb4")]
-position = Vector2(140, 314)
-
-[node name="Enemy" parent="." instance=ExtResource("2_u10mr")]
-position = Vector2(1034, 316)
-
 [node name="Gauge" parent="." instance=ExtResource("3_onu7k")]
-
-[node name="Alert" parent="." instance=ExtResource("4_s1s6j")]
-layout_mode = 1
-offset_left = 2.0
-offset_top = 117.0
-offset_right = 50.0
-offset_bottom = 181.0
-scale = Vector2(0.9600024, 0.55999947)
 
 [node name="Floor" type="TextureRect" parent="."]
 z_index = -1
@@ -48,3 +34,69 @@ expand_mode = 2
 stream = ExtResource("6_onu7k")
 volume_db = 10.602
 autoplay = true
+
+[node name="Lane" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 74.0
+offset_right = 1150.0
+offset_bottom = 218.0
+
+[node name="Ally" parent="Lane" instance=ExtResource("1_j5lb4")]
+position = Vector2(100, 57)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy" parent="Lane" instance=ExtResource("2_u10mr")]
+position = Vector2(1089, 57)
+scale = Vector2(0.5, 0.5)
+
+[node name="Alert" parent="Lane" instance=ExtResource("4_s1s6j")]
+layout_mode = 1
+offset_right = 51.0
+offset_bottom = 56.0
+scale = Vector2(0.9600024, 0.55999947)
+
+[node name="Lane2" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 207.0
+offset_right = 1153.0
+offset_bottom = 351.0
+
+[node name="Ally" parent="Lane2" instance=ExtResource("1_j5lb4")]
+position = Vector2(100, 57)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy" parent="Lane2" instance=ExtResource("2_u10mr")]
+position = Vector2(1089, 57)
+scale = Vector2(0.5, 0.5)
+
+[node name="Alert" parent="Lane2" instance=ExtResource("4_s1s6j")]
+layout_mode = 1
+offset_right = 51.0
+offset_bottom = 56.0
+scale = Vector2(0.9600024, 0.55999947)
+
+[node name="Lane3" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 355.0
+offset_right = 1152.0
+offset_bottom = 499.0
+
+[node name="Ally" parent="Lane3" instance=ExtResource("1_j5lb4")]
+position = Vector2(100, 57)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy" parent="Lane3" instance=ExtResource("2_u10mr")]
+position = Vector2(1089, 57)
+scale = Vector2(0.5, 0.5)
+
+[node name="Alert" parent="Lane3" instance=ExtResource("4_s1s6j")]
+layout_mode = 1
+offset_right = 51.0
+offset_bottom = 56.0
+scale = Vector2(0.9600024, 0.55999947)
