@@ -2,16 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://c5k31d88ihpi6" path="res://characters/blue.tscn" id="1_0mfdm"]
 [ext_resource type="Script" uid="uid://dyo6qo6ka3rn4" path="res://masks/data/maskdata.gd" id="1_7w1ju"]
+[ext_resource type="Texture2D" uid="uid://d1b8x4rvgc7a5" path="res://characters/maskblue.png" id="2_e7bid"]
 
-[sub_resource type="Gradient" id="Gradient_0mfdm"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_e7bid"]
-gradient = SubResource("Gradient_0mfdm")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtxnq"]
+atlas = ExtResource("2_e7bid")
+region = Rect2(0, 0, 128, 128)
 
 [resource]
 script = ExtResource("1_7w1ju")
 mask_id = "blue"
 mask_name = "blue"
 mapping_scene = ExtResource("1_0mfdm")
-mask_texture = SubResource("GradientTexture2D_e7bid")
+mask_texture = SubResource("AtlasTexture_jtxnq")
 metadata/_custom_type_script = "uid://dyo6qo6ka3rn4"
