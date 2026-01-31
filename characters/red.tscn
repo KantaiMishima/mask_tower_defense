@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://du15rqrw4qegk"]
+
+[ext_resource type="PackedScene" uid="uid://cyw0megh8v3om" path="res://characters/character_mother.tscn" id="1_rooxc"]
+[ext_resource type="Script" uid="uid://cokakak4pgvaq" path="res://characters/ally.gd" id="2_e3y64"]
+[ext_resource type="Texture2D" uid="uid://bywxmv848e45s" path="res://images/player0131.png" id="3_moi72"]
+[ext_resource type="Texture2D" uid="uid://dgpr25b6uudc0" path="res://images/playermaskred.png" id="4_e3y64"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moi72"]
+atlas = ExtResource("4_e3y64")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4syb"]
+atlas = ExtResource("4_e3y64")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_veaxd"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moi72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4syb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="RedAlly" instance=ExtResource("1_rooxc")]
+script = ExtResource("2_e3y64")
+speed = 200
+health = 120
+
+[node name="CollisionShape2D" parent="." index="0"]
+visibility_layer = 6
+
+[node name="Model" parent="." index="1"]
+texture = ExtResource("3_moi72")
+hframes = 32
+vframes = 64
+region_rect = Rect2(0, 0, 32, 64)
+
+[node name="Attackmotion" parent="." index="4"]
+collision_mask = 6
+
+[node name="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_veaxd")
+frame = 1
+frame_progress = 0.22209638
