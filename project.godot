@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 SceneChanger="*res://scene_changer.tscn"
 Masklibrary="*res://masks/masklibrary.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [global_group]
 
 <<<<<<< Updated upstream
