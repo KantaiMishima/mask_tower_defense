@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3xedcy2b5d6j"]
+[gd_scene load_steps=5 format=3 uid="uid://b3xedcy2b5d6j"]
 
 [ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://levels/spawnpoint.gd" id="2_abn3g"]
 [ext_resource type="Script" uid="uid://cy0itp5bxanr6" path="res://levels/sapwner.gd" id="3_6s3rl"]
+[ext_resource type="PackedScene" uid="uid://xvqj331qvvrc" path="res://characters/enemy2.tscn" id="3_s4omf"]
 [ext_resource type="PackedScene" uid="uid://dnvk8clvxc1w1" path="res://characters/enemy.tscn" id="4_saw2u"]
 
 [node name="Trail" type="Node2D"]
@@ -16,5 +17,5 @@ spawn_name = "Spawn1"
 [node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("3_6s3rl")
 spawn_point = NodePath("../Spawnpoints/Spawn1")
-base_enemy_scene = ExtResource("4_saw2u")
+base_enemy_scene = ExtResource("3_s4omf")
 hard_enemy_scene = ExtResource("4_saw2u")

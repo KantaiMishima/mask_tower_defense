@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cyw0megh8v3om" path="res://characters/character_mother.tscn" id="1_7k104"]
 [ext_resource type="Script" uid="uid://w35ia1upg0mr" path="res://characters/enemy.gd" id="2_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://v1hm5thtx0sp" path="res://images/enemy1.png" id="3_1ohc2"]
+[ext_resource type="Texture2D" uid="uid://b02qbe465vrd8" path="res://images/enemy2.png" id="3_ggbst"]
 [ext_resource type="PackedScene" uid="uid://ba6pryh8woyyc" path="res://effects/hit_effect.tscn" id="4_ggbst"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggbst"]
-atlas = ExtResource("3_1ohc2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_toq4n"]
+atlas = ExtResource("3_ggbst")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_toq4n"]
-atlas = ExtResource("3_1ohc2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8tuc"]
+atlas = ExtResource("3_ggbst")
 region = Rect2(32, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8tuc"]
@@ -18,10 +18,10 @@ resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ggbst")
+"texture": SubResource("AtlasTexture_toq4n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_toq4n")
+"texture": SubResource("AtlasTexture_u8tuc")
 }],
 "loop": true,
 "name": &"walk",
@@ -36,7 +36,6 @@ script = ExtResource("2_4gyqm")
 [node name="CollisionShape2D" parent="." index="0"]
 light_mask = 2
 visibility_layer = 13
-scale = Vector2(1, 0.5)
 
 [node name="Attackmotion" parent="." index="4"]
 position = Vector2(-413, 0)
@@ -45,7 +44,6 @@ collision_mask = 5
 
 [node name="Attackarea" parent="Attackmotion" index="0"]
 position = Vector2(205, -2)
-scale = Vector2(1, 0.5)
 
 [node name="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = SubResource("SpriteFrames_u8tuc")
