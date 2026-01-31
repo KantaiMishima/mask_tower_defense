@@ -7,10 +7,6 @@ extends Control
 var mask_data_local: maskdata = null
 
 func init_mask(mask_data) -> void:
-	print("=== 卡牌UI初始化检查 ===")
-	print("mask_data是否为空：", mask_data == null)
-	print("mask_texture节点：", mask_texture)
-	print("mask_name节点：", mask_name)
 	if not mask_data:
 		return
 	self.mask_data_local = mask_data
