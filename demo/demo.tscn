@@ -23,7 +23,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Gauge" parent="." instance=ExtResource("3_onu7k")]
+[node name="Gauge" parent="." node_paths=PackedStringArray("Trail1", "Trail2", "Trail3") instance=ExtResource("3_onu7k")]
+Trail1 = NodePath("../Lane/Trail")
+Trail2 = NodePath("../Lane2/Trail")
+Trail3 = NodePath("../Lane3/Trail")
 
 [node name="Floor" type="TextureRect" parent="."]
 z_index = -1

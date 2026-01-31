@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://docoidnseqk2y"]
+
+[ext_resource type="PackedScene" uid="uid://cyw0megh8v3om" path="res://characters/character_mother.tscn" id="1_8on28"]
+[ext_resource type="Script" uid="uid://w35ia1upg0mr" path="res://characters/enemy.gd" id="2_at2eh"]
+[ext_resource type="Texture2D" uid="uid://cywk6uyv8ixcx" path="res://images/boss1.png" id="3_8on28"]
+[ext_resource type="PackedScene" uid="uid://ba6pryh8woyyc" path="res://effects/hit_effect.tscn" id="4_1vriw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at2eh"]
+atlas = ExtResource("3_8on28")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8tuc"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at2eh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4svr"]
+size = Vector2(261.5, 382)
+
+[node name="Boss" groups=["enemy"] instance=ExtResource("1_8on28")]
+scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("2_at2eh")
+speed = 30
+health = 2000
+attack_damage = 50
+
+[node name="CollisionShape2D" parent="." index="0"]
+light_mask = 2
+visibility_layer = 13
+scale = Vector2(1, 3)
+
+[node name="Attackmotion" parent="." index="4"]
+position = Vector2(-413, 0)
+collision_layer = 2
+collision_mask = 21
+
+[node name="Attackarea" parent="Attackmotion" index="0"]
+position = Vector2(350, 0)
+
+[node name="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_u8tuc")
+
+[node name="HitEffect" parent="." index="6" instance=ExtResource("4_1vriw")]
+visible = false
+z_index = 1
+position = Vector2(-200, -150)
+scale = Vector2(0.25, 0.25)
+
+[node name="Attackmotion2" type="Area2D" parent="." index="7"]
+position = Vector2(-413, 300)
+collision_layer = 2
+collision_mask = 21
+
+[node name="Attackarea" type="CollisionShape2D" parent="Attackmotion2" index="0"]
+position = Vector2(350, 0)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_q4svr")
+
+[node name="Attackmotion3" type="Area2D" parent="." index="8"]
+position = Vector2(-413, -330)
+collision_layer = 2
+collision_mask = 21
+
+[node name="Attackarea" type="CollisionShape2D" parent="Attackmotion3" index="0"]
+position = Vector2(350, 0)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_q4svr")

@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://fwjoemrp6n7w"]
+[gd_scene load_steps=3 format=3 uid="uid://fwjoemrp6n7w"]
 
 [ext_resource type="Script" uid="uid://bnyhb8fc08xns" path="res://uis/texture_progress_bar.gd" id="1_3jglj"]
+[ext_resource type="Script" uid="uid://dyyuoobaix7w" path="res://uis/gauge.gd" id="1_26qk2"]
 
-[node name="Gauge" type="Node2D"]
+[node name="Gauge" type="Node2D" node_paths=PackedStringArray("progress")]
+script = ExtResource("1_26qk2")
+progress = NodePath("HBoxContainer/TextureProgressBar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 395.0
@@ -10,10 +13,14 @@ offset_top = 556.0
 offset_right = 1105.0
 offset_bottom = 619.0
 
-[node name="TextureProgressBar" type="ProgressBar" parent="HBoxContainer"]
+[node name="TextureProgressBar" type="ProgressBar" parent="HBoxContainer" node_paths=PackedStringArray("spawn_marker")]
 custom_minimum_size = Vector2(710, 63)
 layout_mode = 2
 step = 0.0
 value = 100.0
 script = ExtResource("1_3jglj")
 decrease_speed = 5.0
+spawn_marker = NodePath("../../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1152, 239)
