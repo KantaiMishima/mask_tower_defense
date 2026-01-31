@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3xedcy2b5d6j"]
+[gd_scene load_steps=9 format=3 uid="uid://b3xedcy2b5d6j"]
 
 [ext_resource type="Script" uid="uid://cgsmju5lvlmsn" path="res://levels/spawnpoint.gd" id="2_abn3g"]
 [ext_resource type="Script" uid="uid://cy0itp5bxanr6" path="res://levels/sapwner.gd" id="3_6s3rl"]
 [ext_resource type="PackedScene" uid="uid://xvqj331qvvrc" path="res://characters/enemy2.tscn" id="3_s4omf"]
 [ext_resource type="PackedScene" uid="uid://dnvk8clvxc1w1" path="res://characters/enemy.tscn" id="4_saw2u"]
 [ext_resource type="PackedScene" uid="uid://0llm4g1uyw82" path="res://uis/alert.tscn" id="5_4xt62"]
+[ext_resource type="Script" uid="uid://dq53k0v0xp480" path="res://levels/deadline.gd" id="5_jy3fd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xt62"]
 size = Vector2(300, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy3fd"]
+size = Vector2(50, 100)
 
 [node name="Trail" type="Node2D"]
 
@@ -24,14 +28,23 @@ spawn_point = NodePath("../Spawnpoints/Spawn1")
 base_enemy_scene = ExtResource("3_s4omf")
 hard_enemy_scene = ExtResource("4_saw2u")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DangerZone" type="Area2D" parent="."]
 position = Vector2(250, 50)
 collision_layer = 0
 collision_mask = 2
 
-[node name="DangerPoint" type="CollisionShape2D" parent="Area2D"]
+[node name="DangerPoint" type="CollisionShape2D" parent="DangerZone"]
 position = Vector2(-100, 0)
 shape = SubResource("RectangleShape2D_4xt62")
+
+[node name="Deadline" type="Area2D" parent="."]
+position = Vector2(0, 50)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_jy3fd")
+
+[node name="DeadlineShape" type="CollisionShape2D" parent="Deadline"]
+shape = SubResource("RectangleShape2D_jy3fd")
 
 [node name="Alert" parent="." instance=ExtResource("5_4xt62")]
 visible = false
@@ -43,5 +56,5 @@ offset_bottom = 110.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="area_entered" from="Area2D" to="Alert" method="_area_show_item"]
-[connection signal="area_exited" from="Area2D" to="Alert" method="_area_hide_item"]
+[connection signal="area_entered" from="DangerZone" to="Alert" method="_area_show_item"]
+[connection signal="area_exited" from="DangerZone" to="Alert" method="_area_hide_item"]
