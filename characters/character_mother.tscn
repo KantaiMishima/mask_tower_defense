@@ -64,6 +64,7 @@ shape = SubResource("RectangleShape2D_q4svr")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_rk557")
 animation = &"walk"
+autoplay = "walk"
 
 [connection signal="timeout" from="Attacktimer" to="." method="_on_attacktimer_timeout"]
 [connection signal="timeout" from="Invincibilitytimer" to="." method="_on_invincibilitytimer_timeout"]
