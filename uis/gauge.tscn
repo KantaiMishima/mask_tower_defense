@@ -32,4 +32,3 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_3jglj")
 texture_progress = SubResource("GradientTexture1D_e53i6")
 script = ExtResource("1_3jglj")
-decrease_speed = 1.0

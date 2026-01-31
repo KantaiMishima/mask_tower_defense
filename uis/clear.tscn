@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://blto0wxch1de8"]
+
+[ext_resource type="Script" uid="uid://4sn746jnknlb" path="res://title.gd" id="1_6wshn"]
+[ext_resource type="FontFile" uid="uid://b0sk2sd0rih0g" path="res://fonts/PressStart2P-Regular.ttf" id="2_w2ecd"]
+[ext_resource type="AudioStream" uid="uid://chyfwbkjaveu7" path="res://sounds/confirm.wav" id="3_8iga5"]
+[ext_resource type="AudioStream" uid="uid://cte8msk8l4xnb" path="res://sounds/clear.mp3" id="4_6wshn"]
+
+[node name="ClearScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clear" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("1_6wshn")
+path = "res://title.tscn"
+
+[node name="GameName" type="Label" parent="Clear"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w2ecd")
+theme_override_font_sizes/font_size = 32
+text = "Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OperationRequest" type="Label" parent="Clear"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_w2ecd")
+theme_override_font_sizes/font_size = 24
+text = "Please Click"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Clear"]
+stream = ExtResource("3_8iga5")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6wshn")
+volume_db = 11.612
+autoplay = true
