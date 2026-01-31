@@ -95,7 +95,7 @@ mask_datas = Array[ExtResource("9_nk31j")]([ExtResource("10_fy1p0")])
 
 [node name="cardpool" type="Node2D" parent="."]
 script = ExtResource("8_tdg64")
-mask_datas = Array[ExtResource("9_nk31j")]([ExtResource("10_fy1p0"), ExtResource("11_svvho"), ExtResource("12_x31ta"), ExtResource("13_d1m6b")])
+mask_datas = Array[ExtResource("9_nk31j")]([ExtResource("11_svvho"), ExtResource("12_x31ta"), ExtResource("13_d1m6b")])
 
 [connection signal="summon" from="Lane/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
 [connection signal="summon" from="Lane2/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
