@@ -23,7 +23,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="Floor" type="TextureRect" parent="."]
-z_index = -1
+z_index = -10
 z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
@@ -93,6 +93,8 @@ mask_datas = Array[ExtResource("8_w8pu6")]([ExtResource("11_pujt7"), ExtResource
 
 [node name="Boss" parent="." instance=ExtResource("14_ta666")]
 position = Vector2(1152, 239)
+collision_layer = 0
+collision_mask = 0
 
 [connection signal="summon" from="Lane/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
 [connection signal="summon" from="Lane2/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
