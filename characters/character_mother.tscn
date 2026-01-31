@@ -40,6 +40,7 @@ script = ExtResource("1_df6th")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.125, 1.625)
+scale = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_0mrcl")
 
 [node name="Model" type="Sprite2D" parent="."]
@@ -60,6 +61,7 @@ one_shot = true
 
 [node name="Attackarea" type="CollisionShape2D" parent="Attackmotion"]
 position = Vector2(216, -2)
+scale = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_q4svr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
