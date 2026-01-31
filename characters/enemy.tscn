@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyw0megh8v3om" path="res://characters/character_mother.tscn" id="1_7k104"]
 [ext_resource type="Script" uid="uid://w35ia1upg0mr" path="res://characters/enemy.gd" id="2_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://cmjkvnfh4f43g" path="res://images/enemy0131b.png" id="3_1ohc2"]
+[ext_resource type="Texture2D" uid="uid://v1hm5thtx0sp" path="res://images/enemy1.png" id="3_1ohc2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggbst"]
 atlas = ExtResource("3_1ohc2")
@@ -46,4 +46,3 @@ position = Vector2(204, -2)
 
 [node name="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = SubResource("SpriteFrames_u8tuc")
-autoplay = "walk"
