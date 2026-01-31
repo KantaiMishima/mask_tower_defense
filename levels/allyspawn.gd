@@ -79,6 +79,11 @@ func clear_area_bodies() -> void:
 
 func _on_checkingspace_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and bodies_in_area.is_empty() == false:
+		# リスポーン待機中（タイマー動作中）はsummonを発火しない
+		if not respawn_available:
+			print("リスポーン待機中です。あと %.1f 秒待ってください" % respawn_timer.time_left)
+			return
+		
 		clear_area_bodies()
 		var spawn_pos = $Respawnpoints/Marker2D.global_position
 		print("位置为")
