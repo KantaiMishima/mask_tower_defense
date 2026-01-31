@@ -24,8 +24,9 @@ script = ExtResource("1_ltyi1")
 maskcontainer = NodePath("MaskContainer")
 mask_ui_scene = ExtResource("2_vt5b8")
 
-[node name="HandPanel" type="Node2D" parent="CanvasLayer/HandPanel"]
+[node name="Drawer" type="Node2D" parent="CanvasLayer/HandPanel" node_paths=PackedStringArray("hand_panel")]
 script = ExtResource("3_03ww2")
+hand_panel = NodePath("..")
 
 [node name="MaskContainer" type="HBoxContainer" parent="CanvasLayer/HandPanel"]
 layout_mode = 0

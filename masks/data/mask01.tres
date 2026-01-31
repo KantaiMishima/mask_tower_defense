@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="maskdata" load_steps=4 format=3 uid="uid://prsxpwm8qnug"]
+
+[ext_resource type="Texture2D" uid="uid://cu8nhkeimtkp8" path="res://icon.svg" id="1_2kj4b"]
+[ext_resource type="Script" uid="uid://dyo6qo6ka3rn4" path="res://masks/data/maskdata.gd" id="1_lateo"]
+[ext_resource type="PackedScene" uid="uid://k3hn0e3ndaej" path="res://characters/ally.tscn" id="2_ev51u"]
+
+[resource]
+script = ExtResource("1_lateo")
+mask_id = "001"
+mask_name = "石の仮面"
+mask_desc = "ばらばらばら"
+mapping_scene = ExtResource("2_ev51u")
+mask_texture = ExtResource("1_2kj4b")
+metadata/_custom_type_script = "uid://dyo6qo6ka3rn4"

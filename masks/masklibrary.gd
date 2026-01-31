@@ -15,7 +15,7 @@ func _init_mask_database() -> void:
 		while file_name != "":
 			if not mask_dir.current_is_dir() and file_name.ends_with(".tres"):
 				var mask_data = load("res://masks/data/" + file_name)
-				mask_database[mask_data.card_id] = mask_data
+				mask_database[mask_data.mask_id] = mask_data
 			file_name = mask_dir.get_next()
 
 func get_mask_data(mask_id: String) -> maskdata:

@@ -8,7 +8,7 @@ extends ColorRect
 var current_hand: Array[Control] = []
 
 # add mask to panel
-func add_card_to_hand(mask_data: maskdata) -> bool:
+func add_mask_to_hand(mask_data: maskdata) -> bool:
 	# check the limit
 	if current_hand.size() >= max_hand_size:
 		print("Number of masks overed" % max_hand_size)
@@ -24,7 +24,7 @@ func add_card_to_hand(mask_data: maskdata) -> bool:
 	return true
 
 # remove masks after used
-func remove_card_from_hand(mask_ui: Control) -> void:
+func remove_mask_from_hand(mask_ui: Control) -> void:
 	if current_hand.has(mask_ui):
 		current_hand.erase(mask_ui)
 		mask_ui.queue_free()

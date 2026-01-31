@@ -6,7 +6,7 @@ extends Control
 
 var mask_data_local: maskdata = null
 
-func init_card(mask_data) -> void:
+func init_mask(mask_data) -> void:
 	if not mask_data:
 		return
 	self.mask_data_local = mask_data
