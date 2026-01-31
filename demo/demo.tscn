@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://rruv1xv4gj63"]
+[gd_scene load_steps=7 format=3 uid="uid://rruv1xv4gj63"]
 
 [ext_resource type="PackedScene" uid="uid://k3hn0e3ndaej" path="res://characters/ally.tscn" id="1_j5lb4"]
 [ext_resource type="PackedScene" uid="uid://dnvk8clvxc1w1" path="res://characters/enemy.tscn" id="2_u10mr"]
 [ext_resource type="PackedScene" uid="uid://fwjoemrp6n7w" path="res://uis/gauge.tscn" id="3_onu7k"]
 [ext_resource type="PackedScene" uid="uid://0llm4g1uyw82" path="res://uis/alert.tscn" id="4_s1s6j"]
 [ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="5_u10mr"]
+[ext_resource type="AudioStream" uid="uid://bpy0xcthd67hl" path="res://sounds/battle.mp3" id="6_onu7k"]
 
 [node name="Demo" type="Control"]
 layout_mode = 3
@@ -42,3 +43,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_u10mr")
 expand_mode = 2
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_onu7k")
+autoplay = true

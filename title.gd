@@ -2,8 +2,9 @@ extends VBoxContainer
 
 # ゲームで一番使うボタンでスタートするようにする
 func _on_start_anywhere_clicked():
+	$AudioStreamPlayer.play()
 	# 登録した名前「SceneChanger」をそのまま使って関数を呼ぶ
-	SceneChanger.change_scene("res://mask_tower_defense.tscn")
+	SceneChanger.change_scene("res://demo/demo.tscn")
 
 func _input(event):
 	# 「マウスの左ボタンが押された瞬間」だけを判定

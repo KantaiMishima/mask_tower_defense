@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmiwotn4dbb2u"]
+[gd_scene load_steps=6 format=3 uid="uid://dmiwotn4dbb2u"]
 
 [ext_resource type="Script" uid="uid://4sn746jnknlb" path="res://title.gd" id="1_oyqm6"]
 [ext_resource type="FontFile" uid="uid://b0sk2sd0rih0g" path="res://fonts/PressStart2P-Regular.ttf" id="1_y7k74"]
 [ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="3_kpexm"]
+[ext_resource type="AudioStream" uid="uid://b8ekro1xw2np2" path="res://sounds/title.mp3" id="4_3xoar"]
+[ext_resource type="AudioStream" uid="uid://chyfwbkjaveu7" path="res://sounds/confirm.wav" id="5_mom7w"]
 
 [node name="TitleScene" type="Control"]
 layout_mode = 3
@@ -51,3 +53,10 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_y7k74")
 theme_override_font_sizes/font_size = 24
 text = "Please Click"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title"]
+stream = ExtResource("5_mom7w")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3xoar")
+autoplay = true
