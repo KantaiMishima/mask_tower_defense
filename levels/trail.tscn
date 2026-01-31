@@ -9,7 +9,7 @@
 [node name="Spawnpoints" type="Node2D" parent="."]
 
 [node name="Spawn1" type="Marker2D" parent="Spawnpoints"]
-position = Vector2(1277, 107)
+position = Vector2(1277, 50)
 script = ExtResource("2_abn3g")
 spawn_name = "Spawn1"
 

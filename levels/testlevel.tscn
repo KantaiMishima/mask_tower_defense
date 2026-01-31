@@ -34,10 +34,10 @@ region_rect = Rect2(-1760.8345, 0, 7671.4263, 1585.4539)
 [node name="Trails" type="Node2D" parent="."]
 
 [node name="Trail" parent="Trails" instance=ExtResource("2_t3dhk")]
-position = Vector2(39, 30)
+position = Vector2(39, 90)
 
 [node name="Trail2" parent="Trails" instance=ExtResource("2_t3dhk")]
-position = Vector2(42, 338)
+position = Vector2(42, 360)
 
 [node name="Ally" type="Node2D" parent="."]
 position = Vector2(0, 48)

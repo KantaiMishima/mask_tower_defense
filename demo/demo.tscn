@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://rruv1xv4gj63"]
+[gd_scene load_steps=8 format=3 uid="uid://rruv1xv4gj63"]
 
-[ext_resource type="PackedScene" uid="uid://k3hn0e3ndaej" path="res://characters/ally.tscn" id="1_j5lb4"]
-[ext_resource type="PackedScene" uid="uid://dnvk8clvxc1w1" path="res://characters/enemy.tscn" id="2_u10mr"]
 [ext_resource type="PackedScene" uid="uid://fwjoemrp6n7w" path="res://uis/gauge.tscn" id="3_onu7k"]
+[ext_resource type="PackedScene" uid="uid://b3xedcy2b5d6j" path="res://levels/trail.tscn" id="4_onvmd"]
 [ext_resource type="PackedScene" uid="uid://0llm4g1uyw82" path="res://uis/alert.tscn" id="4_s1s6j"]
 [ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="5_u10mr"]
 [ext_resource type="AudioStream" uid="uid://bpy0xcthd67hl" path="res://sounds/battle.mp3" id="6_onu7k"]
+[ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="8_ykvhj"]
+[ext_resource type="PackedScene" uid="uid://bakbyql52dfyk" path="res://levels/ui.tscn" id="9_1rqa4"]
 
 [node name="Demo" type="Control"]
 layout_mode = 3
@@ -38,18 +39,11 @@ autoplay = true
 [node name="Lane" type="Control" parent="."]
 custom_minimum_size = Vector2(10, 10)
 anchors_preset = 0
-offset_left = 1.0
-offset_top = 74.0
-offset_right = 1150.0
-offset_bottom = 218.0
+offset_top = 70.0
+offset_right = 1149.0
+offset_bottom = 214.0
 
-[node name="Ally" parent="Lane" instance=ExtResource("1_j5lb4")]
-position = Vector2(100, 57)
-scale = Vector2(0.5, 0.5)
-
-[node name="Enemy" parent="Lane" instance=ExtResource("2_u10mr")]
-position = Vector2(1089, 57)
-scale = Vector2(0.5, 0.5)
+[node name="Trail" parent="Lane" instance=ExtResource("4_onvmd")]
 
 [node name="Alert" parent="Lane" instance=ExtResource("4_s1s6j")]
 layout_mode = 1
@@ -57,21 +51,16 @@ offset_right = 51.0
 offset_bottom = 56.0
 scale = Vector2(0.9600024, 0.55999947)
 
+[node name="Allyspawn" parent="Lane" instance=ExtResource("8_ykvhj")]
+
 [node name="Lane2" type="Control" parent="."]
 custom_minimum_size = Vector2(10, 10)
 anchors_preset = 0
-offset_left = 4.0
-offset_top = 207.0
-offset_right = 1153.0
-offset_bottom = 351.0
+offset_top = 200.0
+offset_right = 1149.0
+offset_bottom = 344.0
 
-[node name="Ally" parent="Lane2" instance=ExtResource("1_j5lb4")]
-position = Vector2(100, 57)
-scale = Vector2(0.5, 0.5)
-
-[node name="Enemy" parent="Lane2" instance=ExtResource("2_u10mr")]
-position = Vector2(1089, 57)
-scale = Vector2(0.5, 0.5)
+[node name="Trail" parent="Lane2" instance=ExtResource("4_onvmd")]
 
 [node name="Alert" parent="Lane2" instance=ExtResource("4_s1s6j")]
 layout_mode = 1
@@ -79,24 +68,26 @@ offset_right = 51.0
 offset_bottom = 56.0
 scale = Vector2(0.9600024, 0.55999947)
 
+[node name="Allyspawn" parent="Lane2" instance=ExtResource("8_ykvhj")]
+
 [node name="Lane3" type="Control" parent="."]
 custom_minimum_size = Vector2(10, 10)
 anchors_preset = 0
-offset_left = 3.0
-offset_top = 355.0
-offset_right = 1152.0
-offset_bottom = 499.0
-
-[node name="Ally" parent="Lane3" instance=ExtResource("1_j5lb4")]
-position = Vector2(100, 57)
-scale = Vector2(0.5, 0.5)
-
-[node name="Enemy" parent="Lane3" instance=ExtResource("2_u10mr")]
-position = Vector2(1089, 57)
-scale = Vector2(0.5, 0.5)
+offset_top = 330.0
+offset_right = 1149.0
+offset_bottom = 474.0
 
 [node name="Alert" parent="Lane3" instance=ExtResource("4_s1s6j")]
 layout_mode = 1
 offset_right = 51.0
 offset_bottom = 56.0
 scale = Vector2(0.9600024, 0.55999947)
+
+[node name="Allyspawn" parent="Lane3" instance=ExtResource("8_ykvhj")]
+
+[node name="Trail" parent="Lane3" instance=ExtResource("4_onvmd")]
+
+[node name="UI" parent="." instance=ExtResource("9_1rqa4")]
+layout_mode = 1
+offset_top = -1.0
+offset_bottom = -1.0
