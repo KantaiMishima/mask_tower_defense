@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("1_r13pc")
 mask_texture = NodePath("Interactive/Mask")
 mask_background = NodePath("Interactive/Background")
@@ -44,6 +44,7 @@ mouse_filter = 1
 
 [node name="Area2D" type="Area2D" parent="Interactive"]
 physics_interpolation_mode = 1
+input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive/Area2D"]
 z_index = 285

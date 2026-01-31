@@ -44,7 +44,9 @@ func _on_checkingspace_body_exited(body: Node2D) -> void:
 	if bodies_in_area.has(body):
 		bodies_in_area.erase(body)
 		respawn_available = false
-		respawn_timer.start()
+		# シーンツリー内にいる場合のみタイマーを起動
+		if is_inside_tree() and respawn_timer and respawn_timer.is_inside_tree():
+			respawn_timer.start()
 	print(body.name, " Leave wating area")
 	pass # Replace with function body.
 	

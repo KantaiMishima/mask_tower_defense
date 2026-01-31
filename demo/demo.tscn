@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://rruv1xv4gj63"]
+[gd_scene load_steps=14 format=3 uid="uid://rruv1xv4gj63"]
 
 [ext_resource type="PackedScene" uid="uid://fwjoemrp6n7w" path="res://uis/gauge.tscn" id="3_onu7k"]
 [ext_resource type="PackedScene" uid="uid://b3xedcy2b5d6j" path="res://levels/trail.tscn" id="4_onvmd"]
-[ext_resource type="PackedScene" uid="uid://0llm4g1uyw82" path="res://uis/alert.tscn" id="4_s1s6j"]
 [ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="5_u10mr"]
 [ext_resource type="AudioStream" uid="uid://bpy0xcthd67hl" path="res://sounds/battle.mp3" id="6_onu7k"]
+[ext_resource type="Script" uid="uid://dbqohntqxuxny" path="res://levels/maskdisplay.gd" id="8_1rqa4"]
+[ext_resource type="Script" uid="uid://dmd8pwffedc34" path="res://Testarea/cardpool.gd" id="8_tdg64"]
 [ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="8_ykvhj"]
-[ext_resource type="PackedScene" uid="uid://bakbyql52dfyk" path="res://levels/ui.tscn" id="9_1rqa4"]
+[ext_resource type="Script" uid="uid://dyo6qo6ka3rn4" path="res://masks/data/maskdata.gd" id="9_nk31j"]
+[ext_resource type="Script" path="res://masks/maskbase.gd" id="9_xm42s"]
+[ext_resource type="Resource" uid="uid://prsxpwm8qnug" path="res://masks/data/mask01.tres" id="10_fy1p0"]
+[ext_resource type="Resource" uid="uid://dc3ekgmotw51w" path="res://masks/data/mask02.tres" id="11_svvho"]
+[ext_resource type="Resource" uid="uid://cnk5qy0n1h7jo" path="res://masks/data/mask03.tres" id="12_x31ta"]
+[ext_resource type="Resource" uid="uid://ckp7v1v6b6xpd" path="res://masks/data/mask04.tres" id="13_d1m6b"]
 
 [node name="Demo" type="Control"]
 layout_mode = 3
@@ -15,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Gauge" parent="." instance=ExtResource("3_onu7k")]
 
@@ -42,14 +49,9 @@ anchors_preset = 0
 offset_top = 70.0
 offset_right = 1149.0
 offset_bottom = 214.0
+mouse_filter = 1
 
 [node name="Trail" parent="Lane" instance=ExtResource("4_onvmd")]
-
-[node name="Alert" parent="Lane" instance=ExtResource("4_s1s6j")]
-layout_mode = 1
-offset_right = 51.0
-offset_bottom = 56.0
-scale = Vector2(0.9600024, 0.55999947)
 
 [node name="Allyspawn" parent="Lane" instance=ExtResource("8_ykvhj")]
 
@@ -59,14 +61,9 @@ anchors_preset = 0
 offset_top = 200.0
 offset_right = 1149.0
 offset_bottom = 344.0
+mouse_filter = 1
 
 [node name="Trail" parent="Lane2" instance=ExtResource("4_onvmd")]
-
-[node name="Alert" parent="Lane2" instance=ExtResource("4_s1s6j")]
-layout_mode = 1
-offset_right = 51.0
-offset_bottom = 56.0
-scale = Vector2(0.9600024, 0.55999947)
 
 [node name="Allyspawn" parent="Lane2" instance=ExtResource("8_ykvhj")]
 
@@ -76,18 +73,30 @@ anchors_preset = 0
 offset_top = 330.0
 offset_right = 1149.0
 offset_bottom = 474.0
-
-[node name="Alert" parent="Lane3" instance=ExtResource("4_s1s6j")]
-layout_mode = 1
-offset_right = 51.0
-offset_bottom = 56.0
-scale = Vector2(0.9600024, 0.55999947)
-
-[node name="Allyspawn" parent="Lane3" instance=ExtResource("8_ykvhj")]
+mouse_filter = 1
 
 [node name="Trail" parent="Lane3" instance=ExtResource("4_onvmd")]
 
-[node name="UI" parent="." instance=ExtResource("9_1rqa4")]
-layout_mode = 1
-offset_top = -1.0
-offset_bottom = -1.0
+[node name="Allyspawn" parent="Lane3" instance=ExtResource("8_ykvhj")]
+
+[node name="Maskdisplay" type="Node2D" parent="." node_paths=PackedStringArray("card_pool", "current_card_anchor", "next_card_anchor")]
+script = ExtResource("8_1rqa4")
+card_pool = NodePath("../cardpool")
+current_card_anchor = NodePath("Node2D2")
+next_card_anchor = NodePath("Node2D")
+
+[node name="Node2D2" type="Node2D" parent="Maskdisplay"]
+
+[node name="Node2D" type="Node2D" parent="Maskdisplay"]
+
+[node name="Maskbase" type="Node2D" parent="."]
+script = ExtResource("9_xm42s")
+mask_datas = Array[ExtResource("9_nk31j")]([ExtResource("10_fy1p0")])
+
+[node name="cardpool" type="Node2D" parent="."]
+script = ExtResource("8_tdg64")
+mask_datas = Array[ExtResource("9_nk31j")]([ExtResource("10_fy1p0"), ExtResource("11_svvho"), ExtResource("12_x31ta"), ExtResource("13_d1m6b")])
+
+[connection signal="summon" from="Lane/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
+[connection signal="summon" from="Lane2/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
+[connection signal="summon" from="Lane3/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]

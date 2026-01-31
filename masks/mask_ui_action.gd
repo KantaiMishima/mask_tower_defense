@@ -15,12 +15,16 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			drag_offset = get_global_mouse_position() - global_position
 			original_position = global_position
 			z_index = 1000
+			# 元の親から削除してからrootに追加
+			original_parent.remove_child(self)
 			get_tree().get_root().add_child(self)
 			print("dragging start")
 		else:
 			if is_dragging:
 				is_dragging = false
 				z_index = 1
+				# rootから削除してから元の親に戻す
+				get_tree().get_root().remove_child(self)
 				original_parent.add_child(self)
 				global_position = original_position
 				print("dragging stop")

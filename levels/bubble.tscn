@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6yg7xnpp5xha"]
+[gd_scene load_steps=11 format=3 uid="uid://b2kxnwvpsihw1"]
 
-[ext_resource type="Script" uid="uid://c3s7uib4b6n5w" path="res://levels/bubble.gd" id="1_f7dbg"]
+[ext_resource type="Script" path="res://levels/bubble.gd" id="1_f7dbg"]
 [ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="2_nlmjq"]
-[ext_resource type="Script" uid="uid://dbqohntqxuxny" path="res://levels/maskdisplay.gd" id="3_bsqx0"]
-[ext_resource type="Script" uid="uid://bet0l76o05bmw" path="res://masks/maskbase.gd" id="4_hvaoc"]
+[ext_resource type="Script" path="res://levels/maskdisplay.gd" id="3_bsqx0"]
+[ext_resource type="Script" path="res://masks/maskbase.gd" id="4_hvaoc"]
 [ext_resource type="Script" uid="uid://dyo6qo6ka3rn4" path="res://masks/data/maskdata.gd" id="6_nlmjq"]
 [ext_resource type="Resource" uid="uid://prsxpwm8qnug" path="res://masks/data/mask01.tres" id="7_afce7"]
 [ext_resource type="Script" uid="uid://dmd8pwffedc34" path="res://Testarea/cardpool.gd" id="7_nlmjq"]
+[ext_resource type="Resource" uid="uid://dc3ekgmotw51w" path="res://masks/data/mask02.tres" id="8_0kl62"]
+[ext_resource type="Resource" uid="uid://cnk5qy0n1h7jo" path="res://masks/data/mask03.tres" id="9_4ky5n"]
+[ext_resource type="Resource" uid="uid://ckp7v1v6b6xpd" path="res://masks/data/mask04.tres" id="10_kloy2"]
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_f7dbg")
@@ -42,7 +45,7 @@ offset_bottom = 619.0
 
 [node name="cardpool" type="Node2D" parent="."]
 script = ExtResource("7_nlmjq")
-mask_datas = Array[ExtResource("6_nlmjq")]([ExtResource("7_afce7")])
+mask_datas = Array[ExtResource("6_nlmjq")]([ExtResource("7_afce7"), ExtResource("8_0kl62"), ExtResource("9_4ky5n"), ExtResource("10_kloy2")])
 
 [connection signal="summon" from="Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
 [connection signal="summon" from="Allyspawn2" to="Maskdisplay" method="_on_allyspawn_2_summon"]

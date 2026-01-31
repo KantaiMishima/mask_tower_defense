@@ -11,7 +11,7 @@ var current_hand: Array[Control] = []
 func add_mask_to_hand(mask_data: maskdata) -> bool:
 	# check the limit
 	if current_hand.size() >= max_hand_size:
-		print("Number of masks overed" % max_hand_size)
+		print("Number of masks overed: %d" % max_hand_size)
 		return false 
 	
 	# generate mask ui
