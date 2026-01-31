@@ -16,4 +16,4 @@ layout_mode = 2
 step = 0.0
 value = 100.0
 script = ExtResource("1_3jglj")
-decrease_speed = 1.0
+decrease_speed = 5.0

@@ -30,8 +30,8 @@ animations = [{
 
 [node name="BlueAlly" instance=ExtResource("1_a8wok")]
 script = ExtResource("2_a0pej")
-speed = 200
-health = 120
+health = 20
+attack_damage = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
 visibility_layer = 6

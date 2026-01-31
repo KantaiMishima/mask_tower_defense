@@ -29,9 +29,10 @@ animations = [{
 }]
 
 [node name="RedAlly" instance=ExtResource("1_rooxc")]
+collision_layer = 16
+collision_mask = 8
 script = ExtResource("2_e3y64")
-speed = 200
-health = 120
+attack_damage = 20
 
 [node name="CollisionShape2D" parent="." index="0"]
 visibility_layer = 6
@@ -43,7 +44,7 @@ vframes = 64
 region_rect = Rect2(0, 0, 32, 64)
 
 [node name="Attackmotion" parent="." index="4"]
-collision_mask = 6
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = SubResource("SpriteFrames_veaxd")

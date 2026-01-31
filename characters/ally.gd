@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: int = 200
 @export var health: int = 40
 var direction: Vector2 = Vector2(1,0)
-var attack_damage: int = 10
+@export var attack_damage: int = 10
 @onready var attacktimer: Timer = $Attacktimer
 @onready var invincibilitytimer: Timer = $Invincibilitytimer
 @onready var attack_area: Area2D = $Attackmotion
