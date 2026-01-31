@@ -8,7 +8,7 @@
 size = Vector2(122.25, 396.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4svr"]
-size = Vector2(259, 382)
+size = Vector2(261.5, 382)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tfnxf"]
 atlas = ExtResource("3_tq6nw")
@@ -60,8 +60,8 @@ one_shot = true
 [node name="Attackmotion" type="Area2D" parent="."]
 
 [node name="Attackarea" type="CollisionShape2D" parent="Attackmotion"]
-position = Vector2(216, -2)
-scale = Vector2(1, 0.5)
+position = Vector2(60, 0)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q4svr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
