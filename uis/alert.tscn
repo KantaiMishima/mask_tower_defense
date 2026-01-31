@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://0llm4g1uyw82"]
+
+[ext_resource type="Script" uid="uid://cwltij4av4i81" path="res://uis/alert.gd" id="1_wbllo"]
+[ext_resource type="AudioStream" uid="uid://cbdr13oaic7na" path="res://sounds/alert.wav" id="2_p0mm7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p0mm7"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_2jgkj"]
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l755o"]
+gradient = SubResource("Gradient_2jgkj")
+
+[node name="Alert" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wbllo")
+
+[node name="DangerOverlay" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_p0mm7")
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_l755o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_p0mm7")
+autoplay = true
