@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://docoidnseqk2y"]
+[gd_scene load_steps=9 format=3 uid="uid://docoidnseqk2y"]
 
 [ext_resource type="PackedScene" uid="uid://cyw0megh8v3om" path="res://characters/character_mother.tscn" id="1_8on28"]
 [ext_resource type="Script" uid="uid://w35ia1upg0mr" path="res://characters/enemy.gd" id="2_at2eh"]
 [ext_resource type="Texture2D" uid="uid://cywk6uyv8ixcx" path="res://images/boss1.png" id="3_8on28"]
 [ext_resource type="PackedScene" uid="uid://ba6pryh8woyyc" path="res://effects/hit_effect.tscn" id="4_1vriw"]
+[ext_resource type="FontFile" uid="uid://b0sk2sd0rih0g" path="res://fonts/PressStart2P-Regular.ttf" id="5_at2eh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at2eh"]
 atlas = ExtResource("3_8on28")
@@ -29,6 +30,7 @@ scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("2_at2eh")
+speed = 100
 health = 500
 attack_damage = 50
 
@@ -85,6 +87,36 @@ shape = SubResource("RectangleShape2D_q4svr")
 z_index = 1
 position = Vector2(-200, -740)
 scale = Vector2(0.25, 0.25)
+
+[node name="BlueLabel" type="Label" parent="." index="11"]
+offset_left = -1200.0
+offset_top = -708.0
+offset_right = -944.0
+offset_bottom = -452.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("5_at2eh")
+theme_override_font_sizes/font_size = 256
+text = "→"
+
+[node name="GreenLabel" type="Label" parent="." index="12"]
+offset_left = -1200.0
+offset_top = -116.0
+offset_right = -944.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_at2eh")
+theme_override_font_sizes/font_size = 256
+text = "→"
+
+[node name="RedLabel" type="Label" parent="." index="13"]
+offset_left = -1200.0
+offset_top = 444.0
+offset_right = -944.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_at2eh")
+theme_override_font_sizes/font_size = 256
+text = "→"
 
 [connection signal="body_entered" from="Attackmotion2" to="HitEffect2" method="_on_attackmotion_2_body_entered"]
 [connection signal="body_entered" from="Attackmotion3" to="HitEffect3" method="_on_attackmotion_3_body_entered"]
