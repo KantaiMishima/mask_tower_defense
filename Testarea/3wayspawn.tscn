@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://baji5ahbyhuh3"]
+
+[ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="1_a8ekc"]
+[ext_resource type="Script" uid="uid://d3ettqqvhxlmi" path="res://levels/3wayspawn.gd" id="2_qf0fu"]
+
+[node name="3Wayspawn" type="Node2D"]
+
+[node name="Allyspawn" parent="." instance=ExtResource("1_a8ekc")]
+position = Vector2(-1, 0)
+script = ExtResource("2_qf0fu")
+respawn_interval = 2.0
+
+[node name="Allyspawn2" parent="." instance=ExtResource("1_a8ekc")]
+position = Vector2(-1, 159)
+script = ExtResource("2_qf0fu")
+respawn_interval = 2.0
+
+[node name="Allyspawn3" parent="." instance=ExtResource("1_a8ekc")]
+position = Vector2(1, 317)
+script = ExtResource("2_qf0fu")
+respawn_interval = 2.0

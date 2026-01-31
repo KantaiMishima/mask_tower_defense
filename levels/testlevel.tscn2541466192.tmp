@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://4rt1iu8fmb4g"]
+[gd_scene load_steps=5 format=3 uid="uid://bo5bveh3ejfte"]
 
 [ext_resource type="PackedScene" uid="uid://bakbyql52dfyk" path="res://levels/ui.tscn" id="1_hb8io"]
 [ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="1_t3dhk"]
@@ -34,17 +34,17 @@ region_rect = Rect2(-1760.8345, 0, 7671.4263, 1585.4539)
 [node name="Trails" type="Node2D" parent="."]
 
 [node name="Trail" parent="Trails" instance=ExtResource("2_t3dhk")]
-position = Vector2(39, 90)
+position = Vector2(39, 30)
 
 [node name="Trail2" parent="Trails" instance=ExtResource("2_t3dhk")]
-position = Vector2(42, 360)
+position = Vector2(42, 338)
+
+[node name="Allyspawn" parent="." groups=["spawn"] instance=ExtResource("3_8j3fl")]
+position = Vector2(10, 80)
+
+[node name="Allyspawn2" parent="." groups=["spawn"] instance=ExtResource("3_8j3fl")]
+position = Vector2(11, 349)
 
 [node name="UI" parent="." instance=ExtResource("1_hb8io")]
 
 [node name="Interactive_Layer" type="Node2D" parent="."]
-
-[node name="Allyspawn" parent="." instance=ExtResource("3_8j3fl")]
-position = Vector2(1, 48)
-
-[node name="Allyspawn2" parent="." instance=ExtResource("3_8j3fl")]
-position = Vector2(2, 335)

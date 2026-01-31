@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6yg7xnpp5xha"]
+
+[ext_resource type="Script" uid="uid://c3s7uib4b6n5w" path="res://levels/bubble.gd" id="1_f7dbg"]
+[ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="2_nlmjq"]
+[ext_resource type="Script" uid="uid://dbqohntqxuxny" path="res://levels/maskdisplay.gd" id="3_bsqx0"]
+[ext_resource type="Script" uid="uid://bet0l76o05bmw" path="res://masks/maskbase.gd" id="4_hvaoc"]
+[ext_resource type="Script" uid="uid://dyo6qo6ka3rn4" path="res://masks/data/maskdata.gd" id="6_nlmjq"]
+[ext_resource type="Resource" uid="uid://prsxpwm8qnug" path="res://masks/data/mask01.tres" id="7_afce7"]
+[ext_resource type="Script" uid="uid://dmd8pwffedc34" path="res://Testarea/cardpool.gd" id="7_nlmjq"]
+
+[node name="Bubble" type="Node2D"]
+script = ExtResource("1_f7dbg")
+
+[node name="Allyspawn" parent="." instance=ExtResource("2_nlmjq")]
+position = Vector2(42, 211)
+
+[node name="Allyspawn2" parent="." instance=ExtResource("2_nlmjq")]
+position = Vector2(482, 214)
+
+[node name="Allyspawn3" parent="." instance=ExtResource("2_nlmjq")]
+position = Vector2(991, 203)
+
+[node name="Maskdisplay" type="Node2D" parent="." node_paths=PackedStringArray("card_pool", "current_card_anchor", "next_card_anchor")]
+script = ExtResource("3_bsqx0")
+card_pool = NodePath("../cardpool")
+current_card_anchor = NodePath("Node2D2")
+next_card_anchor = NodePath("Node2D")
+
+[node name="Node2D2" type="Node2D" parent="Maskdisplay"]
+
+[node name="Node2D" type="Node2D" parent="Maskdisplay"]
+
+[node name="Maskbase" type="Node2D" parent="."]
+script = ExtResource("4_hvaoc")
+mask_datas = Array[ExtResource("6_nlmjq")]([ExtResource("7_afce7")])
+
+[node name="Time#" type="ProgressBar" parent="."]
+offset_left = 397.0
+offset_top = 556.0
+offset_right = 1107.0
+offset_bottom = 619.0
+
+[node name="cardpool" type="Node2D" parent="."]
+script = ExtResource("7_nlmjq")
+mask_datas = Array[ExtResource("6_nlmjq")]([ExtResource("7_afce7")])
+
+[connection signal="summon" from="Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
+[connection signal="summon" from="Allyspawn2" to="Maskdisplay" method="_on_allyspawn_2_summon"]
+[connection signal="summon" from="Allyspawn3" to="Maskdisplay" method="_on_allyspawn_3_summon"]

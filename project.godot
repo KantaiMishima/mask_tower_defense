@@ -22,7 +22,11 @@ Masklibrary="*res://masks/masklibrary.gd"
 
 [global_group]
 
+<<<<<<< Updated upstream
 enemy=""
+=======
+PlayArea=""
+>>>>>>> Stashed changes
 
 [layer_names]
 

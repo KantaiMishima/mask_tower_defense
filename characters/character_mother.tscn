@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyw0megh8v3om"]
+[gd_scene load_steps=8 format=3 uid="uid://cyw0megh8v3om"]
 
 [ext_resource type="Script" uid="uid://dq6aof07jdt7l" path="res://characters/character_mother.gd" id="1_df6th"]
-[ext_resource type="Texture2D" uid="uid://cu8nhkeimtkp8" path="res://icon.svg" id="2_2yk2m"]
 [ext_resource type="Texture2D" uid="uid://bywxmv848e45s" path="res://images/player0131.png" id="3_tq6nw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mrcl"]
@@ -47,7 +46,6 @@ shape = SubResource("RectangleShape2D_0mrcl")
 visible = false
 position = Vector2(-3.8146973e-06, 0)
 scale = Vector2(1.0839843, 3.0996094)
-texture = ExtResource("2_2yk2m")
 
 [node name="Attacktimer" type="Timer" parent="."]
 wait_time = 0.5

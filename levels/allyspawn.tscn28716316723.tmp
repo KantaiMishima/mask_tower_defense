@@ -9,7 +9,7 @@ size = Vector2(127, 124)
 
 [node name="Allyspawn" type="Node2D" node_paths=PackedStringArray("respawn_point")]
 script = ExtResource("1_7mpum")
-respawn_interval = 1.2
+respawn_interval = 1.5
 base_ally_scene = ExtResource("2_lccsv")
 respawn_point = NodePath("Respawnpoints/Marker2D")
 
@@ -29,4 +29,3 @@ spawn_name = "Respawn"
 
 [connection signal="body_entered" from="Checkingspace" to="." method="_on_checkingspace_body_entered"]
 [connection signal="body_exited" from="Checkingspace" to="." method="_on_checkingspace_body_exited"]
-[connection signal="input_event" from="Checkingspace" to="." method="_on_checkingspace_input_event"]

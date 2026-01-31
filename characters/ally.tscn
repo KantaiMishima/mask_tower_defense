@@ -48,3 +48,5 @@ collision_mask = 6
 sprite_frames = SubResource("SpriteFrames_veaxd")
 frame = 1
 frame_progress = 0.22209638
+
+[connection signal="input_event" from="Attackmotion" to="." method="_on_attackmotion_input_event"]

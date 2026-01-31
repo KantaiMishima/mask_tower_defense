@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5xlk0tol3ndl"]
+
+[ext_resource type="PackedScene" uid="uid://k3hn0e3ndaej" path="res://characters/ally.tscn" id="1_7f1x1"]
+[ext_resource type="Texture2D" uid="uid://bywxmv848e45s" path="res://images/player0131.png" id="2_7776g"]
+[ext_resource type="Script" uid="uid://cdjrhaa8x1rvk" path="res://characters/super_ally.gd" id="2_oelbm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfnxf"]
+atlas = ExtResource("2_7776g")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q006f"]
+atlas = ExtResource("2_7776g")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oelbm"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfnxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q006f")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="SuperAlly" instance=ExtResource("1_7f1x1")]
+script = ExtResource("2_oelbm")
+
+[node name="AnimatedSprite2D" parent="." index="5"]
+modulate = Color(1.6477263, 1.5965189, 0.53552794, 1)
+sprite_frames = SubResource("SpriteFrames_oelbm")
