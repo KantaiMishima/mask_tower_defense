@@ -1,4 +1,4 @@
-extends TextureProgressBar
+extends ProgressBar
 
 # 1秒間に減らしたい量（例：10なら10秒で100から0になる）
 @export var decrease_speed: float = 10.0

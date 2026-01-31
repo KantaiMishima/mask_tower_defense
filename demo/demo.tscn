@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dmd8pwffedc34" path="res://Testarea/cardpool.gd" id="8_tdg64"]
 [ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="8_ykvhj"]
 [ext_resource type="Script" uid="uid://dyo6qo6ka3rn4" path="res://masks/data/maskdata.gd" id="9_nk31j"]
-[ext_resource type="Script" path="res://masks/maskbase.gd" id="9_xm42s"]
+[ext_resource type="Script" uid="uid://bet0l76o05bmw" path="res://masks/maskbase.gd" id="9_xm42s"]
 [ext_resource type="Resource" uid="uid://prsxpwm8qnug" path="res://masks/data/mask01.tres" id="10_fy1p0"]
 [ext_resource type="Resource" uid="uid://dc3ekgmotw51w" path="res://masks/data/mask02.tres" id="11_svvho"]
 [ext_resource type="Resource" uid="uid://cnk5qy0n1h7jo" path="res://masks/data/mask03.tres" id="12_x31ta"]
