@@ -36,6 +36,7 @@ script = ExtResource("2_at2eh")
 speed = 30
 health = 500
 attack_damage = 50
+clear_on_death = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 light_mask = 3

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var health: int = 40
 var direction: Vector2 = Vector2(-1,0)
 @export var attack_damage: int = 10
+@export var clear_on_death: bool = false
 @onready var attacktimer: Timer = $Attacktimer
 @onready var invincibilitytimer: Timer = $Invincibilitytimer
 @onready var attack_area: Area2D = $Attackmotion
@@ -14,6 +15,7 @@ var Invincibility: bool = false
 
 var current_targets: Array[Node2D] = []
 var bodies_in_area: Dictionary = {}
+var clear_ui = preload("res://uis/clear.tscn")  # Load the ClearUI script
 
 func _ready() -> void:
 	if attacktimer:
@@ -64,6 +66,9 @@ func hit(damage:int) -> void:
 	$HitEffect.flash_item()
 	print("attacked, Health remain in", health)
 	if health <= 0:
+		if clear_on_death:
+			var ui_instance = clear_ui.instantiate()
+			get_tree().get_root().add_child(ui_instance)
 		death()
 	Invincibility = true
 	invincibilitytimer.start()
