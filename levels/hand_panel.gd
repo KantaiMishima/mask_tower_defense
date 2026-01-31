@@ -21,6 +21,7 @@ func add_mask_to_hand(mask_data: maskdata) -> bool:
 	# add to container
 	maskcontainer.add_child(mask_ui)
 	current_hand.append(mask_ui)
+	print("maskui added, ui in container is ", maskcontainer.get_child_count())
 	return true
 
 # remove masks after used

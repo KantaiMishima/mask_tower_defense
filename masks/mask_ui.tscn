@@ -1,12 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr536yjw3k0l7"]
+[gd_scene load_steps=2 format=3 uid="uid://cr536yjw3k0l7"]
 
 [ext_resource type="Script" uid="uid://ddu4bciv82x3d" path="res://masks/mask_ui.gd" id="1_r13pc"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_w0ive"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_0ytla"]
-
-[node name="Maskui" type="Control"]
+[node name="Maskui" type="Control" node_paths=PackedStringArray("mask_texture", "mask_background", "mask_name")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +10,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r13pc")
+mask_texture = NodePath("Mask")
+mask_background = NodePath("Background")
+mask_name = NodePath("Name")
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.28960225, 0.2128677, 0.3272178, 1)
@@ -23,15 +22,13 @@ offset_top = -52.000008
 offset_right = -11.0
 offset_bottom = -12.000008
 scale = Vector2(2.5599997, 2.6000006)
-texture = SubResource("CanvasTexture_w0ive")
 
 [node name="Mask" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -20.0
-offset_top = -26.0
-offset_right = 20.0
-offset_bottom = 14.0
-texture = SubResource("CanvasTexture_0ytla")
+offset_left = -41.0
+offset_top = -41.0
+offset_right = -1.0
+offset_bottom = -1.0
 
 [node name="Name" type="Label" parent="."]
 layout_mode = 0
@@ -39,4 +36,3 @@ offset_left = -32.0
 offset_top = 21.0
 offset_right = 32.0
 offset_bottom = 44.0
-text = "石の仮面"

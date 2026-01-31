@@ -1,8 +1,7 @@
 extends Node2D
-const HandPanel = preload("res://levels/hand_panel.gd")
 
-@export var hand_panel: HandPanel  #
-@export var draw_interval: float = 3.0  # 
+@export var hand_panel: ColorRect  #
+@export var draw_interval: float = 1.5  # 
 @export var is_auto_draw: bool = true   #
 
 var draw_timer: Timer = null
@@ -10,6 +9,7 @@ var draw_timer: Timer = null
 func _ready() -> void:
 	randomize()
 	_init_draw_timer()
+	
 
 func _init_draw_timer() -> void:
 	draw_timer = Timer.new()
@@ -22,9 +22,12 @@ func _init_draw_timer() -> void:
 		draw_timer.start()
 
 func _on_draw_timer_timeout() -> void:
-	var random_mask = Masklibrary.get_random_mask()
-	if not random_mask:
-		print("empty")
+	var mask_library = get_tree().root.get_node("/root/Masklibrary")
+	if not mask_library:
+		draw_timer.stop()
+		return
+	var random_mask = mask_library.get_random_mask()
+	if not random_mask or not random_mask is maskdata:
 		draw_timer.stop() 
 		return
 	
