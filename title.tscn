@@ -59,4 +59,5 @@ stream = ExtResource("5_mom7w")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_3xoar")
+volume_db = 11.612
 autoplay = true

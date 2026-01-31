@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba6pryh8woyyc"]
+
+[ext_resource type="Texture2D" uid="uid://bvdt5th5qbab8" path="res://images/firefly.png" id="1_1ot2f"]
+[ext_resource type="Script" uid="uid://cg4ee3fbg280l" path="res://effects/hit_effect.gd" id="1_elvhw"]
+[ext_resource type="AudioStream" uid="uid://cgrj60bseh4ib" path="res://sounds/hit.wav" id="2_elvhw"]
+
+[node name="HitEffect" type="Node2D"]
+script = ExtResource("1_elvhw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1200.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1ot2f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_elvhw")
+volume_db = 19.185
+autoplay = true
