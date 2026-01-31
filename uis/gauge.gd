@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 
 		var boss = boss_scene.instantiate()
 		boss.global_position = $Marker2D.global_position
+		get_tree().current_scene.add_child(boss)
 
 		# このスクリプト自体も停止
 		set_process(false)

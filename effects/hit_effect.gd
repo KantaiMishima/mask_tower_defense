@@ -10,3 +10,13 @@ func flash_item():
 	
 	# 3. 自分を非表示にする
 	hide() # または visible = false
+
+
+func _on_attackmotion_2_body_entered(body: Node2D) -> void:
+	flash_item()
+	pass # Replace with function body.
+
+
+func _on_attackmotion_3_body_entered(body: Node2D) -> void:
+	flash_item()
+	pass # Replace with function body.

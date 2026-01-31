@@ -29,8 +29,7 @@ scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("2_at2eh")
-speed = 30
-health = 2000
+health = 500
 attack_damage = 50
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -56,7 +55,8 @@ position = Vector2(-200, -150)
 scale = Vector2(0.25, 0.25)
 
 [node name="Attackmotion2" type="Area2D" parent="." index="7"]
-position = Vector2(-413, 300)
+position = Vector2(-1544, 572)
+scale = Vector2(4, 1)
 collision_layer = 2
 collision_mask = 21
 
@@ -65,8 +65,14 @@ position = Vector2(350, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q4svr")
 
-[node name="Attackmotion3" type="Area2D" parent="." index="8"]
-position = Vector2(-413, -330)
+[node name="HitEffect2" parent="." index="8" instance=ExtResource("4_1vriw")]
+visible = false
+z_index = 1
+position = Vector2(-550, 420)
+scale = Vector2(0.25, 0.25)
+
+[node name="Attackmotion3" type="Area2D" parent="." index="9"]
+position = Vector2(-392, -596)
 collision_layer = 2
 collision_mask = 21
 
@@ -74,3 +80,11 @@ collision_mask = 21
 position = Vector2(350, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q4svr")
+
+[node name="HitEffect3" parent="." index="10" instance=ExtResource("4_1vriw")]
+z_index = 1
+position = Vector2(-200, -740)
+scale = Vector2(0.25, 0.25)
+
+[connection signal="body_entered" from="Attackmotion2" to="HitEffect2" method="_on_attackmotion_2_body_entered"]
+[connection signal="body_entered" from="Attackmotion3" to="HitEffect3" method="_on_attackmotion_3_body_entered"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://d14h4ndyfem0s"]
+
+[ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="2_0s7ec"]
+[ext_resource type="AudioStream" uid="uid://bpy0xcthd67hl" path="res://sounds/battle.mp3" id="3_jikn4"]
+[ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="5_lmeg3"]
+[ext_resource type="Script" uid="uid://dbqohntqxuxny" path="res://levels/maskdisplay.gd" id="6_rib3f"]
+[ext_resource type="Script" uid="uid://bet0l76o05bmw" path="res://masks/maskbase.gd" id="7_max0x"]
+[ext_resource type="Script" uid="uid://dyo6qo6ka3rn4" path="res://masks/data/maskdata.gd" id="8_w8pu6"]
+[ext_resource type="Resource" uid="uid://prsxpwm8qnug" path="res://masks/data/mask01.tres" id="9_ll5wj"]
+[ext_resource type="Script" uid="uid://dmd8pwffedc34" path="res://Testarea/cardpool.gd" id="10_c3u5i"]
+[ext_resource type="Resource" uid="uid://dc3ekgmotw51w" path="res://masks/data/mask02.tres" id="11_pujt7"]
+[ext_resource type="Resource" uid="uid://cnk5qy0n1h7jo" path="res://masks/data/mask03.tres" id="12_gdg64"]
+[ext_resource type="Resource" uid="uid://ckp7v1v6b6xpd" path="res://masks/data/mask04.tres" id="13_5ghb4"]
+[ext_resource type="PackedScene" uid="uid://docoidnseqk2y" path="res://characters/boss.tscn" id="14_ta666"]
+
+[node name="Demo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Floor" type="TextureRect" parent="."]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_0s7ec")
+expand_mode = 2
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jikn4")
+volume_db = 10.602
+autoplay = true
+
+[node name="Lane" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 0
+offset_top = 70.0
+offset_right = 1149.0
+offset_bottom = 214.0
+mouse_filter = 1
+
+[node name="Allyspawn" parent="Lane" instance=ExtResource("5_lmeg3")]
+respawn_interval = 1.3
+
+[node name="Lane2" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 0
+offset_top = 200.0
+offset_right = 1149.0
+offset_bottom = 344.0
+mouse_filter = 1
+
+[node name="Allyspawn" parent="Lane2" instance=ExtResource("5_lmeg3")]
+respawn_interval = 1.3
+
+[node name="Lane3" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 0
+offset_top = 330.0
+offset_right = 1149.0
+offset_bottom = 474.0
+mouse_filter = 1
+
+[node name="Allyspawn" parent="Lane3" instance=ExtResource("5_lmeg3")]
+respawn_interval = 1.3
+
+[node name="Maskdisplay" type="Node2D" parent="." node_paths=PackedStringArray("card_pool", "current_card_anchor", "next_card_anchor")]
+script = ExtResource("6_rib3f")
+card_pool = NodePath("../cardpool")
+current_card_anchor = NodePath("Node2D2")
+next_card_anchor = NodePath("Node2D")
+
+[node name="Node2D2" type="Node2D" parent="Maskdisplay"]
+
+[node name="Node2D" type="Node2D" parent="Maskdisplay"]
+
+[node name="Maskbase" type="Node2D" parent="."]
+script = ExtResource("7_max0x")
+mask_datas = Array[ExtResource("8_w8pu6")]([ExtResource("9_ll5wj")])
+
+[node name="cardpool" type="Node2D" parent="."]
+script = ExtResource("10_c3u5i")
+mask_datas = Array[ExtResource("8_w8pu6")]([ExtResource("11_pujt7"), ExtResource("12_gdg64"), ExtResource("13_5ghb4")])
+
+[node name="Boss" parent="." instance=ExtResource("14_ta666")]
+position = Vector2(1152, 239)
+
+[connection signal="summon" from="Lane/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
+[connection signal="summon" from="Lane2/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
+[connection signal="summon" from="Lane3/Allyspawn" to="Maskdisplay" method="_on_allyspawn_summon"]
