@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://fwjoemrp6n7w"]
+
+[ext_resource type="Script" uid="uid://bnyhb8fc08xns" path="res://uis/texture_progress_bar.gd" id="1_3jglj"]
+
+[sub_resource type="Gradient" id="Gradient_esf3p"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3jglj"]
+gradient = SubResource("Gradient_esf3p")
+
+[sub_resource type="Gradient" id="Gradient_26qk2"]
+offsets = PackedFloat32Array(0.007246377, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e53i6"]
+gradient = SubResource("Gradient_26qk2")
+
+[node name="Gauge" type="Node2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 839.0
+offset_top = 34.0
+offset_right = 1095.0
+offset_bottom = 42.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(256, 8)
+layout_mode = 2
+step = 0.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_3jglj")
+texture_progress = SubResource("GradientTexture1D_e53i6")
+script = ExtResource("1_3jglj")
+decrease_speed = 1.0
