@@ -1,9 +1,12 @@
 extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:# 1. 1.0秒待つ（シーンツリーにタイマーを作成して、その終了を待機）
+	
+func flash_item():
+	# 1. 自分を表示する
+	show() # または visible = true
+	$AudioStreamPlayer2D.play()
+	
+	# 2. 1.0秒待機する
 	await get_tree().create_timer(1.0).timeout
 	
-	# 2. 自分自身を安全に消去する
-	queue_free()
+	# 3. 自分を非表示にする
+	hide() # または visible = false

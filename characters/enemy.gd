@@ -61,6 +61,7 @@ func hit(damage:int) -> void:
 	if Invincibility:
 		return
 	health -= damage
+	$HitEffect.flash_item()
 	print("attacked, Health remain in", health)
 	if health <= 0:
 		death()
