@@ -15,4 +15,5 @@ func _process(delta):
 
 func time_up():
 	print("時間切れ！")
+	$AudioStreamPlayer.play()
 	set_process(false)

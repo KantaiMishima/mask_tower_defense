@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fwjoemrp6n7w"]
+[gd_scene load_steps=4 format=3 uid="uid://fwjoemrp6n7w"]
 
 [ext_resource type="Script" uid="uid://bnyhb8fc08xns" path="res://uis/texture_progress_bar.gd" id="1_3jglj"]
 [ext_resource type="Script" uid="uid://dyyuoobaix7w" path="res://uis/gauge.gd" id="1_26qk2"]
+[ext_resource type="AudioStream" uid="uid://4rjhwb30mpc4" path="res://sounds/boss.wav" id="3_e53i6"]
 
 [node name="Gauge" type="Node2D" node_paths=PackedStringArray("progress")]
 script = ExtResource("1_26qk2")
@@ -19,8 +20,11 @@ layout_mode = 2
 step = 0.0
 value = 100.0
 script = ExtResource("1_3jglj")
-decrease_speed = 5.0
+decrease_speed = 3.0
 spawn_marker = NodePath("../../Marker2D")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/TextureProgressBar"]
+stream = ExtResource("3_e53i6")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1152, 239)
