@@ -30,6 +30,7 @@ animations = [{
 
 [node name="GreenAlly" instance=ExtResource("1_mjs1d")]
 script = ExtResource("2_mwbu2")
+speed = 100
 health = 120
 
 [node name="CollisionShape2D" parent="." index="0"]

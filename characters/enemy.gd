@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 func check_off_screen() -> void:
 	# 画面の左端より左に出たらゲームオーバー
 	var viewport_rect = get_viewport_rect()
-	if global_position.x < -100:  # 画面左端より100ピクセル外
+	if global_position.x < +100:  # 画面左端より100ピクセル外
 		trigger_game_over()
 
 func trigger_game_over() -> void:
