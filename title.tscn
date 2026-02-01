@@ -64,10 +64,11 @@ text = "Play in Japanese"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title"]
 stream = ExtResource("5_mom7w")
+volume_db = -14.274
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_3xoar")
-volume_db = 11.612
+volume_db = 9.0
 autoplay = true
 
 [connection signal="button_down" from="Title/OperationRequest" to="Title" method="_on_operation_request_button_down"]

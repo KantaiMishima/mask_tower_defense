@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var hp_bar: ProgressBar
 @export var speed: int = 200
 @export var health: int = 40
 var direction: Vector2 = Vector2(-1,0)
@@ -31,6 +32,9 @@ func _ready() -> void:
 		invincibilitytimer.timeout.connect(_on_invincibilitytimer_timeout)
 	attack_area.body_entered.connect(_on_body_enter_area)
 	attack_area.body_exited.connect(_on_body_leave_area)
+	if hp_bar:
+		hp_bar.max_value = health
+		hp_bar.value = health
 
 #set unit that entered area into check list 
 func _on_body_enter_area(body: Node2D) -> void:
@@ -89,6 +93,8 @@ func hit(damage:int) -> void:
 		death()
 	Invincibility = true
 	invincibilitytimer.start()
+	if hp_bar:
+		hp_bar.value = health
 
 func death() -> void:
 	print("Death ")

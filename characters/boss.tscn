@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://docoidnseqk2y"]
+[gd_scene load_steps=12 format=3 uid="uid://docoidnseqk2y"]
 
 [ext_resource type="PackedScene" uid="uid://cyw0megh8v3om" path="res://characters/character_mother.tscn" id="1_8on28"]
 [ext_resource type="Script" uid="uid://w35ia1upg0mr" path="res://characters/enemy.gd" id="2_at2eh"]
@@ -28,11 +28,18 @@ size = Vector2(261.5, 382)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at2eh"]
 size = Vector2(200, 200)
 
-[node name="Boss" groups=["enemy"] instance=ExtResource("1_8on28")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at2eh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxro7"]
+bg_color = Color(18.892157, 0, 0, 1)
+
+[node name="Boss" node_paths=PackedStringArray("hp_bar") groups=["enemy"] instance=ExtResource("1_8on28")]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("2_at2eh")
+hp_bar = NodePath("ProgressBar")
 speed = 30
 health = 500
 attack_damage = 50
@@ -141,6 +148,15 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyCollisionLower" index="0"]
 shape = SubResource("RectangleShape2D_at2eh")
+
+[node name="ProgressBar" type="ProgressBar" parent="." index="16"]
+offset_left = -500.0
+offset_top = 852.0
+offset_right = 500.0
+offset_bottom = 902.0
+theme_override_styles/background = SubResource("StyleBoxFlat_at2eh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vxro7")
+show_percentage = false
 
 [connection signal="body_entered" from="Attackmotion2" to="HitEffect2" method="_on_attackmotion_2_body_entered"]
 [connection signal="body_entered" from="Attackmotion3" to="HitEffect3" method="_on_attackmotion_3_body_entered"]

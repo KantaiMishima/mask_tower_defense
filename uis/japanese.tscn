@@ -19,3 +19,4 @@ expand_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_umdi0")
+volume_db = -14.0

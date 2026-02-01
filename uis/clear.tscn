@@ -34,7 +34,7 @@ text = "Clear"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OperationRequest" type="Label" parent="Clear"]
+[node name="OperationRequest" type="Button" parent="Clear"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_w2ecd")
@@ -43,8 +43,10 @@ text = "Click to Proceed"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Clear"]
 stream = ExtResource("3_8iga5")
+volume_db = -14.0
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6wshn")
-volume_db = 11.612
 autoplay = true
+
+[connection signal="button_down" from="Clear/OperationRequest" to="Clear" method="_on_operation_request_button_down"]

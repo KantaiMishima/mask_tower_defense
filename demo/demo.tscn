@@ -44,7 +44,6 @@ expand_mode = 2
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_onu7k")
-volume_db = 10.602
 autoplay = true
 
 [node name="Lane" type="Control" parent="."]
@@ -98,7 +97,7 @@ next_card_anchor = NodePath("Node2D")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Maskdisplay"]
 stream = ExtResource("7_nk31j")
-volume_db = 20.129
+volume_db = 7.894
 
 [node name="Maskbase" type="Node2D" parent="."]
 script = ExtResource("9_xm42s")
