@@ -68,7 +68,8 @@ func hit(damage:int) -> void:
 	if health <= 0:
 		if clear_on_death:
 			var ui_instance = clear_ui.instantiate()
-			get_tree().get_root().add_child(ui_instance)
+			# ルートではなく現在のシーンに追加
+			get_tree().current_scene.add_child(ui_instance)
 		death()
 	Invincibility = true
 	invincibilitytimer.start()
