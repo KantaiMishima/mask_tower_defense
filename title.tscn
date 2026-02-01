@@ -48,12 +48,19 @@ text = "Relic Mask Guardians"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OperationRequest" type="Label" parent="Title"]
+[node name="OperationRequest" type="Button" parent="Title"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_y7k74")
 theme_override_font_sizes/font_size = 24
-text = "Click to Play"
+text = "Play in English"
+
+[node name="OperationRequest2" type="Button" parent="Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_y7k74")
+theme_override_font_sizes/font_size = 24
+text = "Play in Japanese"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title"]
 stream = ExtResource("5_mom7w")
@@ -62,3 +69,6 @@ stream = ExtResource("5_mom7w")
 stream = ExtResource("4_3xoar")
 volume_db = 11.612
 autoplay = true
+
+[connection signal="button_down" from="Title/OperationRequest" to="Title" method="_on_operation_request_button_down"]
+[connection signal="button_down" from="Title/OperationRequest2" to="Title" method="_on_operation_request_2_button_down"]

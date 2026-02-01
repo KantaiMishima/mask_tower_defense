@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dagvg1mea1pl2"]
+
+[ext_resource type="Script" uid="uid://buppsygt10mq1" path="res://uis/english.gd" id="1_lt36n"]
+[ext_resource type="Texture2D" uid="uid://fktn3lnbucx" path="res://images/japanese.png" id="2_lt36n"]
+[ext_resource type="AudioStream" uid="uid://chyfwbkjaveu7" path="res://sounds/confirm.wav" id="3_umdi0"]
+
+[node name="Japanese" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lt36n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_lt36n")
+expand_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_umdi0")
