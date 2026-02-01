@@ -15,7 +15,8 @@ var Invincibility: bool = false
 
 var current_targets: Array[Node2D] = []
 var bodies_in_area: Dictionary = {}
-var clear_ui = preload("res://uis/clear.tscn")  # Load the ClearUI script
+var clear_ui = preload("res://uis/clear.tscn")
+var game_over_scene = preload("res://uis/game_over.tscn")
 
 func _ready() -> void:
 	if attacktimer:
@@ -48,6 +49,10 @@ func _physics_process(delta: float) -> void:
 	var motion = direction * speed * delta
 	move_and_collide(motion)
 	
+	# clear_on_deathがtrueの場合、画面外チェック
+	if clear_on_death:
+		check_off_screen()
+	
 	# false of empty means attackable object exist
 	if not bodies_in_area.is_empty() and Attackbility:
 		# for list for attack 
@@ -57,6 +62,17 @@ func _physics_process(delta: float) -> void:
 			attacktimer.start()
 			break  # attach point for area attack
 	#could only attack the first body in the area
+
+func check_off_screen() -> void:
+	# 画面の左端より左に出たらゲームオーバー
+	var viewport_rect = get_viewport_rect()
+	if global_position.x < -100:  # 画面左端より100ピクセル外
+		trigger_game_over()
+
+func trigger_game_over() -> void:
+	print("Boss escaped! Game Over")
+	SceneChanger.change_scene("res://uis/game_over.tscn")
+	queue_free()
 
 
 func hit(damage:int) -> void:
