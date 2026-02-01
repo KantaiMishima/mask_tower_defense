@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://rruv1xv4gj63"]
+[gd_scene load_steps=15 format=3 uid="uid://rruv1xv4gj63"]
 
 [ext_resource type="PackedScene" uid="uid://fwjoemrp6n7w" path="res://uis/gauge.tscn" id="3_onu7k"]
 [ext_resource type="PackedScene" uid="uid://b3xedcy2b5d6j" path="res://levels/trail.tscn" id="4_onvmd"]
 [ext_resource type="Texture2D" uid="uid://clnsgm1sx87l4" path="res://images/floor.jpg" id="5_u10mr"]
 [ext_resource type="AudioStream" uid="uid://bpy0xcthd67hl" path="res://sounds/battle.mp3" id="6_onu7k"]
+[ext_resource type="AudioStream" uid="uid://8qeeappea215" path="res://sounds/putOnAMask.wav" id="7_nk31j"]
 [ext_resource type="Script" uid="uid://dbqohntqxuxny" path="res://levels/maskdisplay.gd" id="8_1rqa4"]
 [ext_resource type="Script" uid="uid://dmd8pwffedc34" path="res://Testarea/cardpool.gd" id="8_tdg64"]
 [ext_resource type="PackedScene" uid="uid://c2l07juqq7xy6" path="res://levels/allyspawn.tscn" id="8_ykvhj"]
@@ -94,6 +95,10 @@ next_card_anchor = NodePath("Node2D")
 [node name="Node2D2" type="Node2D" parent="Maskdisplay"]
 
 [node name="Node2D" type="Node2D" parent="Maskdisplay"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Maskdisplay"]
+stream = ExtResource("7_nk31j")
+volume_db = 20.129
 
 [node name="Maskbase" type="Node2D" parent="."]
 script = ExtResource("9_xm42s")

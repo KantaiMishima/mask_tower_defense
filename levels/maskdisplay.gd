@@ -53,6 +53,7 @@ func summon_current_card(spawn_pos: Vector2) -> void:
 	if not current_data.mapping_scene:
 		return
 
+	$AudioStreamPlayer.play()
 	var ally := current_data.mapping_scene.instantiate()
 	ally.global_position = spawn_pos
 	summon_allies_container.add_child(ally)
